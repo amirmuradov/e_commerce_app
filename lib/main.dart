@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'pages/home_page.dart';
@@ -18,9 +19,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      theme: lightTheme,
+      themeMode: ThemeMode.light,
+      home: const HomePage(),
     );
   }
 }

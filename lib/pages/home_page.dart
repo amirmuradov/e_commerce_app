@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:e_commerce_app/widgets/circle_tab_indicator.dart';
 import 'package:e_commerce_app/widgets/custom_btn.dart';
 import 'package:e_commerce_app/theme.dart';
 import 'package:e_commerce_app/widgets/custom_textfield.dart';
@@ -84,14 +85,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               padding: const EdgeInsets.only(top: 75),
               child: Text(
                 "Market",
-                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                       color: Theme.of(context).shadowColor,
                       fontFamily: "NotoSans-SemiBold",
                     ),
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             Row(
               children: [
@@ -136,12 +137,22 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            Container(
+            Align(
+              alignment: Alignment.centerLeft,
               child: TabBar(
                 controller: tabController,
+                isScrollable: true,
+                unselectedLabelColor: Theme.of(context).dividerColor,
+                labelColor: Theme.of(context).shadowColor,
+                labelStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 17.5,
+                      fontFamily: "NotoSans-Medium",
+                    ),
+                indicator: CircleTabIndicator(
+                  color: Theme.of(context).shadowColor,
+                  radius: 4,
+                ),
                 tabs: const [
                   Tab(text: "Featured"),
                   Tab(text: "Collections"),
@@ -150,19 +161,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ],
               ),
             ),
-            Container(
-              width: double.maxFinite,
-              height: 300,
-              child: TabBarView(
-                controller: tabController,
-                children: [
-                  Text("hi"),
-                  Text("hi"),
-                  Text("hi"),
-                  Text("hi"),
-                ],
-              ),
-            )
           ],
         ),
       ),
