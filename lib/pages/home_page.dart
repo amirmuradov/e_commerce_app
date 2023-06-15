@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:e_commerce_app/widgets/custom_btn.dart';
 import 'package:e_commerce_app/theme.dart';
 import 'package:e_commerce_app/widgets/custom_textfield.dart';
@@ -12,67 +14,81 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  late TabController tabController;
   int currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 4, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: false,
       child: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: currentIndex,
-          onTap: (int index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
-          items: [
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/icons/home.svg',
-                height: 20,
-                color: currentIndex == 0
-                    ? Theme.of(context).primaryColor
-                    : Theme.of(context).shadowColor,
+        bottomNavigationBar: SizedBox(
+          height: 65,
+          child: BottomNavigationBar(
+            currentIndex: currentIndex,
+            onTap: (int index) {
+              setState(() {
+                currentIndex = index;
+              });
+            },
+            items: [
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  'assets/icons/home.svg',
+                  height: 25,
+                  color: currentIndex == 0
+                      ? Theme.of(context).primaryColor
+                      : Theme.of(context).shadowColor,
+                ),
+                label: "Feed",
               ),
-              label: "Feeds",
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/icons/market.svg',
-                color: currentIndex == 1
-                    ? Theme.of(context).primaryColor
-                    : Theme.of(context).shadowColor,
-                height: 20,
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  'assets/icons/market.svg',
+                  color: currentIndex == 1
+                      ? Theme.of(context).primaryColor
+                      : Theme.of(context).shadowColor,
+                  height: 25,
+                ),
+                label: "Market",
               ),
-              label: "Market",
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/icons/user.svg',
-                color: currentIndex == 2
-                    ? Theme.of(context).primaryColor
-                    : Theme.of(context).shadowColor,
-                height: 20,
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  'assets/icons/user.svg',
+                  color: currentIndex == 2
+                      ? Theme.of(context).primaryColor
+                      : Theme.of(context).shadowColor,
+                  height: 25,
+                ),
+                label: "Profile",
               ),
-              label: "Profile",
-            ),
-          ],
+            ],
+          ),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CustomBtn(
-              onTap: () {},
-              accentColor: primaryColor,
-              height: 50,
-              borderRadius: BorderRadius.circular(8),
-              margin: const EdgeInsets.symmetric(horizontal: 10),
-              text: 'Add to cart',
-              textStyle: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: Theme.of(context).scaffoldBackgroundColor,
-                  ),
-              textColor: textColor.withOpacity(1),
-              width: 180,
+            Padding(
+              padding: const EdgeInsets.only(top: 75),
+              child: Text(
+                "Market",
+                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                      color: Theme.of(context).shadowColor,
+                      fontFamily: "NotoSans-SemiBold",
+                    ),
+              ),
             ),
             const SizedBox(
               height: 20,
@@ -81,10 +97,10 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Expanded(
                   child: CustomTextField(
-                    borderRadius: BorderRadius.circular(18),
+                    borderRadius: BorderRadius.circular(15),
                     margin: const EdgeInsets.only(
                       left: 15,
-                      right: 15,
+                      right: 10,
                     ),
                     controller: TextEditingController(),
                     padding: const EdgeInsets.symmetric(
@@ -96,31 +112,57 @@ class _HomePageState extends State<HomePage> {
                     textStyle:
                         Theme.of(context).textTheme.titleMedium!.copyWith(
                               color: Theme.of(context).dividerColor,
+                              fontFamily: "NotoSans-Regular",
                             ),
-                    suffixIcon: Icon(
-                      Icons.search,
+                    suffixIcon: SvgPicture.asset(
+                      'assets/icons/search.svg',
                       color: Theme.of(context).dividerColor,
+                      height: 25,
                     ),
                   ),
                 ),
                 CustomIconButton(
                   padding: const EdgeInsets.only(
-                    right: 25,
+                    right: 15,
                   ),
                   borderSide: BorderSide(
                     color: Theme.of(context).dividerColor,
                     width: 2,
                   ),
-                  icon: Icon(
-                    Icons.wallet,
-                    color: Theme.of(context).dividerColor,
-                  ),
+                  icon: const Icon(Icons.search),
                   margin: const EdgeInsets.all(0),
                   width: 60,
-                  height: 50,
+                  height: 55,
                 ),
               ],
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              child: TabBar(
+                controller: tabController,
+                tabs: const [
+                  Tab(text: "Featured"),
+                  Tab(text: "Collections"),
+                  Tab(text: "Stores"),
+                  Tab(text: "Tags"),
+                ],
+              ),
+            ),
+            Container(
+              width: double.maxFinite,
+              height: 300,
+              child: TabBarView(
+                controller: tabController,
+                children: [
+                  Text("hi"),
+                  Text("hi"),
+                  Text("hi"),
+                  Text("hi"),
+                ],
+              ),
+            )
           ],
         ),
       ),
