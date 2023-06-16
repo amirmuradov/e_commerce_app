@@ -230,7 +230,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       child: CartItem(
                         text: 'Clothing',
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              color: Theme.of(context).canvasColor,
+                              color: Theme.of(context).hintColor,
                             ),
                       ),
                     ),
@@ -244,7 +244,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       child: CartItem(
                         text: 'Shoes',
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              color: Theme.of(context).canvasColor,
+                              color: Theme.of(context).hintColor,
                             ),
                       ),
                     ),
@@ -265,7 +265,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       child: CartItem(
                         text: 'Accessories',
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              color: Theme.of(context).canvasColor,
+                              color: Theme.of(context).hintColor,
                             ),
                       ),
                     ),
@@ -279,7 +279,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       child: CartItem(
                         text: 'Sport',
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              color: Theme.of(context).canvasColor,
+                              color: Theme.of(context).hintColor,
                             ),
                       ),
                     ),
@@ -300,7 +300,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       child: CartItem(
                         text: 'Personal Care',
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              color: Theme.of(context).canvasColor,
+                              color: Theme.of(context).hintColor,
                             ),
                       ),
                     ),
@@ -314,7 +314,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       child: CartItem(
                         text: 'Special',
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              color: Theme.of(context).canvasColor,
+                              color: Theme.of(context).hintColor,
                             ),
                       ),
                     ),
