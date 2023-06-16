@@ -1,7 +1,7 @@
 import 'package:e_commerce_app/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'pages/home_page.dart';
+import 'pages/main_page.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -14,7 +14,6 @@ void main() {
   );
 }
 
-//test
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
