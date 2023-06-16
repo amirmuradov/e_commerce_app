@@ -8,6 +8,7 @@ const secondaryHeaderColor = Color(0xFFFF7C5A);
 const dividerColor = Color(0x1A0E0E10);
 const scaffoldBackGroundColor = Color(0xFFFFFFFF);
 const shadowColor = Color(0xFFCFCFCF);
+const hintColor = Color(0xFF0E0E10);
 
 ThemeData lightTheme = ThemeData(
   tabBarTheme: const TabBarTheme(
@@ -22,6 +23,7 @@ ThemeData lightTheme = ThemeData(
   primaryColor: primaryColor,
   dividerColor: lightGray,
   shadowColor: shadowColor,
+  hintColor: hintColor,
   fontFamily: "NotoSans-SemiBold",
   textTheme: const TextTheme(
     bodySmall: TextStyle(

@@ -1,8 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:e_commerce_app/widgets/circle_tab_indicator.dart';
-import 'package:e_commerce_app/widgets/custom_btn.dart';
-import 'package:e_commerce_app/theme.dart';
 import 'package:e_commerce_app/widgets/custom_textfield.dart';
 import 'package:e_commerce_app/widgets/icon_button.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +37,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         bottomNavigationBar: SizedBox(
           height: 65,
           child: BottomNavigationBar(
+            selectedLabelStyle: TextStyle(
+              color: Theme.of(context).primaryColor,
+            ),
+            unselectedLabelStyle: TextStyle(
+              color: Theme.of(context).shadowColor,
+            ),
             currentIndex: currentIndex,
             onTap: (int index) {
               setState(() {
@@ -49,7 +53,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   'assets/icons/home.svg',
-                  height: 25,
+                  height: 30,
                   color: currentIndex == 0
                       ? Theme.of(context).primaryColor
                       : Theme.of(context).shadowColor,
@@ -62,7 +66,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   color: currentIndex == 1
                       ? Theme.of(context).primaryColor
                       : Theme.of(context).shadowColor,
-                  height: 25,
+                  height: 30,
                 ),
                 label: "Market",
               ),
@@ -72,7 +76,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   color: currentIndex == 2
                       ? Theme.of(context).primaryColor
                       : Theme.of(context).shadowColor,
-                  height: 25,
+                  height: 30,
                 ),
                 label: "Profile",
               ),
@@ -85,9 +89,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               padding: const EdgeInsets.only(top: 75),
               child: Text(
                 "Market",
-                style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                      color: Theme.of(context).shadowColor,
-                      fontFamily: "NotoSans-SemiBold",
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      color: Theme.of(context).hintColor,
+                      fontFamily: "NotoSans-Medium",
                     ),
               ),
             ),
@@ -110,11 +114,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ),
                     onChanged: (vers) {},
                     hint: "Search on Tassel",
-                    textStyle:
-                        Theme.of(context).textTheme.titleMedium!.copyWith(
-                              color: Theme.of(context).dividerColor,
-                              fontFamily: "NotoSans-Regular",
-                            ),
+                    textStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
+                          color: Theme.of(context).dividerColor,
+                          fontFamily: "NotoSans-SemiBold",
+                        ),
                     suffixIcon: SvgPicture.asset(
                       'assets/icons/search.svg',
                       color: Theme.of(context).dividerColor,
@@ -143,14 +146,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 controller: tabController,
                 isScrollable: true,
                 unselectedLabelColor: Theme.of(context).dividerColor,
-                labelColor: Theme.of(context).shadowColor,
+                labelColor: Theme.of(context).hintColor,
                 labelStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       color: Theme.of(context).primaryColor,
                       fontSize: 17.5,
                       fontFamily: "NotoSans-Medium",
                     ),
                 indicator: CircleTabIndicator(
-                  color: Theme.of(context).shadowColor,
+                  color: Theme.of(context).primaryColor,
                   radius: 4,
                 ),
                 tabs: const [
