@@ -9,6 +9,7 @@ const dividerColor = Color(0x1A0E0E10);
 const scaffoldBackGroundColor = Color(0xFFFFFFFF);
 const shadowColor = Color(0xFFCFCFCF);
 const hintColor = Color(0xFF0E0E10);
+const disabledText = Color(0xFFB7B7B8);
 
 ThemeData lightTheme = ThemeData(
   tabBarTheme: const TabBarTheme(
@@ -24,6 +25,12 @@ ThemeData lightTheme = ThemeData(
   dividerColor: lightGray,
   shadowColor: shadowColor,
   hintColor: hintColor,
+  focusColor: lightGray,
+  unselectedWidgetColor: disabledText,
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    backgroundColor: scaffoldBackGroundColor,
+    elevation: 0,
+  ),
   fontFamily: "NotoSans-SemiBold",
   textTheme: const TextTheme(
     bodySmall: TextStyle(

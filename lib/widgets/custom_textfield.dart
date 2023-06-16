@@ -18,8 +18,10 @@ class CustomTextField extends StatefulWidget {
   final EdgeInsets padding;
   final bool enabled;
   final Widget? suffixIcon;
+  final TextStyle? hintStyle;
 
   const CustomTextField({
+    this.hintStyle,
     this.hint = "",
     required this.controller,
     required this.onChanged,
@@ -89,11 +91,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
                         keyboardType: widget.inputType,
                         controller: widget.controller,
                         decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.all(0),
-                          border: InputBorder.none,
-                          isDense: true,
-                          hintText: widget.hint,
-                        ),
+                            contentPadding: const EdgeInsets.all(0),
+                            border: InputBorder.none,
+                            isDense: true,
+                            hintText: widget.hint,
+                            hintStyle: widget.hintStyle),
                       ),
                       if (widget.suffixIcon != null)
                         Positioned(

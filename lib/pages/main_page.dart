@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       top: false,
       child: Scaffold(
         bottomNavigationBar: SizedBox(
-          height: 65,
+          height: 70,
           child: BottomNavigationBar(
             selectedLabelStyle: TextStyle(
               color: Theme.of(context).primaryColor,
@@ -114,9 +114,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ),
                     onChanged: (vers) {},
                     hint: "Search on Tassel",
+                    baseColor: Theme.of(context).shadowColor,
                     textStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          color: Theme.of(context).dividerColor,
-                          fontFamily: "NotoSans-SemiBold",
+                          color: Theme.of(context).scaffoldBackgroundColor,
+                          fontFamily: "NotoSans-Regular",
                         ),
                     suffixIcon: SvgPicture.asset(
                       'assets/icons/search.svg',
@@ -140,16 +141,22 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
               ],
             ),
+            const SizedBox(
+              height: 15,
+            ),
             Align(
               alignment: Alignment.centerLeft,
               child: TabBar(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 5,
+                ),
                 controller: tabController,
                 isScrollable: true,
-                unselectedLabelColor: Theme.of(context).dividerColor,
+                unselectedLabelColor: Theme.of(context).unselectedWidgetColor,
                 labelColor: Theme.of(context).hintColor,
                 labelStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       color: Theme.of(context).primaryColor,
-                      fontSize: 17.5,
+                      fontSize: 17,
                       fontFamily: "NotoSans-Medium",
                     ),
                 indicator: CircleTabIndicator(
