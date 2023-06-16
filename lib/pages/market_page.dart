@@ -84,101 +84,245 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ],
           ),
         ),
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 75),
-              child: Text(
-                "Market",
-                style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                      color: Theme.of(context).hintColor,
-                      fontFamily: "NotoSans-Medium",
-                    ),
+        body: SingleChildScrollView(
+          physics: AlwaysScrollableScrollPhysics(
+            parent: NeverScrollableScrollPhysics(),
+          ),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 75),
+                child: Text(
+                  "Market",
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        color: Theme.of(context).hintColor,
+                        fontFamily: "NotoSans-Medium",
+                      ),
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: CustomTextField(
-                    borderRadius: BorderRadius.circular(15),
-                    margin: const EdgeInsets.only(
-                      left: 15,
-                      right: 10,
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: CustomTextField(
+                      borderRadius: BorderRadius.circular(15),
+                      margin: const EdgeInsets.only(
+                        left: 15,
+                        right: 10,
+                      ),
+                      controller: TextEditingController(),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 15,
+                        vertical: 15,
+                      ),
+                      onChanged: (vers) {},
+                      hint: "Search on Tassel",
+                      baseColor: Theme.of(context).shadowColor,
+                      textStyle: Theme.of(context)
+                          .textTheme
+                          .titleSmall!
+                          .copyWith(
+                            color: Theme.of(context).scaffoldBackgroundColor,
+                            fontFamily: "NotoSans-Regular",
+                          ),
+                      suffixIcon: SvgPicture.asset(
+                        'assets/icons/search.svg',
+                        color: Theme.of(context).dividerColor,
+                        height: 25,
+                      ),
                     ),
-                    controller: TextEditingController(),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 15,
-                      vertical: 15,
+                  ),
+                  CustomIconButton(
+                    padding: const EdgeInsets.only(
+                      right: 15,
                     ),
-                    onChanged: (vers) {},
-                    hint: "Search on Tassel",
-                    baseColor: Theme.of(context).shadowColor,
-                    textStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          color: Theme.of(context).scaffoldBackgroundColor,
-                          fontFamily: "NotoSans-Regular",
-                        ),
-                    suffixIcon: SvgPicture.asset(
-                      'assets/icons/search.svg',
+                    borderSide: BorderSide(
                       color: Theme.of(context).dividerColor,
-                      height: 25,
+                      width: 2,
                     ),
+                    icon: const Icon(Icons.search),
+                    margin: const EdgeInsets.all(0),
+                    width: 60,
+                    height: 55,
                   ),
-                ),
-                CustomIconButton(
-                  padding: const EdgeInsets.only(
-                    right: 15,
-                  ),
-                  borderSide: BorderSide(
-                    color: Theme.of(context).dividerColor,
-                    width: 2,
-                  ),
-                  icon: const Icon(Icons.search),
-                  margin: const EdgeInsets.all(0),
-                  width: 60,
-                  height: 55,
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: TabBar(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 5,
-                ),
-                controller: tabController,
-                isScrollable: true,
-                unselectedLabelColor: Theme.of(context).unselectedWidgetColor,
-                labelColor: Theme.of(context).hintColor,
-                labelStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: Theme.of(context).primaryColor,
-                      fontSize: 17,
-                      fontFamily: "NotoSans-Medium",
-                    ),
-                indicator: CircleTabIndicator(
-                  color: Theme.of(context).primaryColor,
-                  radius: 4,
-                ),
-                tabs: const [
-                  Tab(text: "Featured"),
-                  Tab(text: "Collections"),
-                  Tab(text: "Stores"),
-                  Tab(text: "Tags"),
                 ],
               ),
-            ),
-            CartItem(
-              text: 'On Sale',
-              style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                    color: Theme.of(context).canvasColor,
+              const SizedBox(
+                height: 15,
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TabBar(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 5,
                   ),
-            )
-          ],
+                  controller: tabController,
+                  isScrollable: true,
+                  unselectedLabelColor: Theme.of(context).unselectedWidgetColor,
+                  labelColor: Theme.of(context).hintColor,
+                  labelStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: 17,
+                        fontFamily: "NotoSans-Medium",
+                      ),
+                  indicator: CircleTabIndicator(
+                    color: Theme.of(context).primaryColor,
+                    radius: 4,
+                  ),
+                  tabs: const [
+                    Tab(text: "Featured"),
+                    Tab(text: "Collections"),
+                    Tab(text: "Stores"),
+                    Tab(text: "Tags"),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 15,
+                        right: 5,
+                      ),
+                      child: CartItem(
+                        color: Theme.of(context).dividerColor,
+                        text: 'On Sale',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              color: Theme.of(context).canvasColor,
+                            ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 5,
+                        right: 15,
+                      ),
+                      child: CartItem(
+                        color: Theme.of(context).focusColor,
+                        text: 'New',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              color: Theme.of(context).primaryColor,
+                            ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 15,
+                        right: 5,
+                      ),
+                      child: CartItem(
+                        text: 'Clothing',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              color: Theme.of(context).canvasColor,
+                            ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 5,
+                        right: 15,
+                      ),
+                      child: CartItem(
+                        text: 'Shoes',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              color: Theme.of(context).canvasColor,
+                            ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 15,
+                        right: 5,
+                      ),
+                      child: CartItem(
+                        text: 'Accessories',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              color: Theme.of(context).canvasColor,
+                            ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 5,
+                        right: 15,
+                      ),
+                      child: CartItem(
+                        text: 'Sport',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              color: Theme.of(context).canvasColor,
+                            ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 15,
+                        right: 5,
+                      ),
+                      child: CartItem(
+                        text: 'Personal Care',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              color: Theme.of(context).canvasColor,
+                            ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 5,
+                        right: 15,
+                      ),
+                      child: CartItem(
+                        text: 'Special',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              color: Theme.of(context).canvasColor,
+                            ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
