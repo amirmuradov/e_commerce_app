@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:e_commerce_app/widgets/cart_tem.dart';
 import 'package:e_commerce_app/widgets/circle_tab_indicator.dart';
 import 'package:e_commerce_app/widgets/custom_textfield.dart';
 import 'package:e_commerce_app/widgets/icon_button.dart';
@@ -171,6 +172,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ],
               ),
             ),
+            CartItem(
+              text: 'On Sale',
+              style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                    color: Theme.of(context).canvasColor,
+                  ),
+            )
           ],
         ),
       ),

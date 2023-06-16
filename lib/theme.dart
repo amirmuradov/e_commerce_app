@@ -10,6 +10,7 @@ const scaffoldBackGroundColor = Color(0xFFFFFFFF);
 const shadowColor = Color(0xFFCFCFCF);
 const hintColor = Color(0xFF0E0E10);
 const disabledText = Color(0xFFB7B7B8);
+const canvasColor = Color(0xFFF25B5B);
 
 ThemeData lightTheme = ThemeData(
   tabBarTheme: const TabBarTheme(
@@ -26,6 +27,7 @@ ThemeData lightTheme = ThemeData(
   shadowColor: shadowColor,
   hintColor: hintColor,
   focusColor: lightGray,
+  canvasColor: canvasColor,
   unselectedWidgetColor: disabledText,
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: scaffoldBackGroundColor,
