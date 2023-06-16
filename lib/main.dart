@@ -1,7 +1,7 @@
 import 'package:e_commerce_app/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'pages/main_page.dart';
+import 'pages/market_page.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
