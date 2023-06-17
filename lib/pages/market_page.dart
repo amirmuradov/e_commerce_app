@@ -322,9 +322,50 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                 ],
               ),
-              const ProductCart(
-                imageUrl:
-                    "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8amVhbnN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+              const SizedBox(
+                height: 15,
+              ),
+              const Padding(
+                padding: EdgeInsets.only(
+                  left: 15,
+                  right: 15,
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: ProductCart(
+                        height: 1000,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                        imageUrl:
+                            "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8amVhbnN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const Padding(
+                padding: EdgeInsets.only(
+                  left: 15,
+                  right: 15,
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: ProductCart(
+                          height: 1000,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20),
+                          ),
+                          imageUrl:
+                              "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
