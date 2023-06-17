@@ -4,6 +4,7 @@ import 'package:e_commerce_app/widgets/cart.dart';
 import 'package:e_commerce_app/widgets/circle_tab_indicator.dart';
 import 'package:e_commerce_app/widgets/custom_textfield.dart';
 import 'package:e_commerce_app/widgets/icon_button.dart';
+import 'package:e_commerce_app/widgets/product_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -320,6 +321,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     ),
                   ),
                 ],
+              ),
+              const ProductCart(
+                imageUrl:
+                    "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8amVhbnN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
               ),
             ],
           ),
